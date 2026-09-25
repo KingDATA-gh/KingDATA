@@ -4,37 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KingDATA 🇬🇭 | Affordable Data Bundles</title>
-
-  <meta
-    name="description"
-    content="KingDATA provides fast, reliable and affordable mobile data bundles in Ghana."
-  >
+  <title>KingDATA 🇬🇭</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: Arial, sans-serif;
-      background: #f5f7fa;
+      background: #f5f6fa;
       color: #111;
     }
 
     header {
       background: #111;
       color: white;
-      padding: 18px 7%;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 800;
     }
 
@@ -42,22 +37,16 @@
       color: #ff8c00;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-
     .hero {
-      padding: 80px 7%;
-      text-align: center;
-      background: linear-gradient(135deg, #111, #292929);
+      background: linear-gradient(135deg, #111, #252525);
       color: white;
+      text-align: center;
+      padding: 80px 20px;
     }
 
     .hero h1 {
-      font-size: 45px;
-      margin-bottom: 15px;
+      font-size: 44px;
+      margin-bottom: 20px;
     }
 
     .hero h1 span {
@@ -66,47 +55,84 @@
 
     .hero p {
       font-size: 18px;
+      line-height: 1.6;
       max-width: 600px;
       margin: auto;
-      line-height: 1.6;
+      color: #ddd;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
+      margin-top: 30px;
+      padding: 15px 30px;
       background: #ff8c00;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .section {
-      padding: 50px 7%;
-      text-align: center;
+      padding: 55px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .section h2 {
-      margin-bottom: 30px;
-      font-size: 30px;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
     }
 
-    .cards {
+    .networks {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
     }
 
-    .card {
+    .network {
       background: white;
-      padding: 30px 20px;
-      border-radius: 15px;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
       box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
+    .network h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .network p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .network .btn {
+      margin-top: 5px;
+      width: 100%;
+    }
+
+    .mtn {
+      border-top: 6px solid #ffcc00;
+    }
+
+    .telecel {
+      border-top: 6px solid #e53935;
+    }
+
+    .airteltigo {
+      border-top: 6px solid #1976d2;
+    }
+
+    .about {
+      text-align: center;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 20px;
     }
 
     footer {
@@ -114,15 +140,12 @@
       color: white;
       text-align: center;
       padding: 25px;
+      margin-top: 30px;
     }
 
     @media (max-width: 600px) {
       .hero h1 {
-        font-size: 34px;
-      }
-
-      nav {
-        display: none;
+        font-size: 36px;
       }
     }
   </style>
@@ -130,61 +153,78 @@
 
 <body>
 
-  <header>
-    <div class="logo">King<span>DATA</span> 🇬🇭</div>
+<header>
+  <div class="logo">
+    King<span>DATA</span> 🇬🇭
+  </div>
+</header>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#bundles">Bundles</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<section class="hero">
+  <h1>Get Your <span>Data</span> Instantly</h1>
 
-  <section class="hero">
-    <h1>Get Your <span>Data</span> Instantly</h1>
+  <p>
+    Fast, reliable and affordable mobile data bundles
+    for customers across Ghana.
+  </p>
+
+  <a href="#networks" class="btn">Buy Data</a>
+</section>
+
+<section class="section" id="networks">
+
+  <h2>Choose Your Network</h2>
+
+  <div class="networks">
+
+    <div class="network mtn">
+      <h3>🟡 MTN</h3>
+      <p>Affordable MTN data bundles.</p>
+      <button class="btn" onclick="selectNetwork('YELLO')">
+        View Bundles
+      </button>
+    </div>
+
+    <div class="network telecel">
+      <h3>🔴 Telecel</h3>
+      <p>Get Telecel data bundles.</p>
+      <button class="btn" onclick="selectNetwork('TELECEL')">
+        View Bundles
+      </button>
+    </div>
+
+    <div class="network airteltigo">
+      <h3>🔵 AirtelTigo</h3>
+      <p>Affordable AirtelTigo bundles.</p>
+      <button class="btn" onclick="selectNetwork('AIRTELTIGO')">
+        View Bundles
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="about">
+    <h2>KingDATA 🇬🇭</h2>
 
     <p>
-      Fast, reliable and affordable mobile data bundles
-      for customers across Ghana.
+      Fast data. Simple ordering. Reliable service.
     </p>
+  </div>
 
-    <a href="#bundles" class="btn">Buy Data</a>
-  </section>
+</section>
 
-  <section class="section" id="bundles">
-    <h2>Choose Your Network</h2>
+<footer>
+  © 2026 KingDATA 🇬🇭. All rights reserved.
+</footer>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>🟡 MTN</h3>
-        <p>Affordable MTN data bundles.</p>
-        <a href="#" class="btn">View Bundles</a>
-      </div>
-
-      <div class="card">
-        <h3>🔴 Telecel</h3>
-        <p>Get Telecel data bundles.</p>
-        <a href="#" class="btn">View Bundles</a>
-      </div>
-
-      <div class="card">
-        <h3>🔵 AirtelTigo</h3>
-        <p>Affordable AirtelTigo bundles.</p>
-        <a href="#" class="btn">View Bundles</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2>KingDATA</h2>
-    <p>Fast data. Simple ordering. Reliable service.</p>
-  </section>
-
-  <footer>
-    © 2026 KingDATA 🇬🇭. All rights reserved.
-  </footer>
+<script>
+  function selectNetwork(network) {
+    alert("You selected " + network + ". Bundle selection will be connected to the DataMart API next.");
+  }
+</script>
 
 </body>
 </html>
