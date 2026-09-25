@@ -89,7 +89,10 @@
 
     .networks {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+      );
       gap: 25px;
     }
 
@@ -135,6 +138,41 @@
       padding: 40px 20px;
     }
 
+    #order {
+      display: none;
+    }
+
+    .order-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 550px;
+      margin: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .order-box label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .order-box input,
+    .order-box select {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .order-box .btn {
+      width: 100%;
+      margin-top: 25px;
+    }
+
     footer {
       background: #111;
       color: white;
@@ -153,78 +191,281 @@
 
 <body>
 
-<header>
-  <div class="logo">
-    King<span>DATA</span> 🇬🇭
-  </div>
-</header>
-
-<section class="hero">
-  <h1>Get Your <span>Data</span> Instantly</h1>
-
-  <p>
-    Fast, reliable and affordable mobile data bundles
-    for customers across Ghana.
-  </p>
-
-  <a href="#networks" class="btn">Buy Data</a>
-</section>
-
-<section class="section" id="networks">
-
-  <h2>Choose Your Network</h2>
-
-  <div class="networks">
-
-    <div class="network mtn">
-      <h3>🟡 MTN</h3>
-      <p>Affordable MTN data bundles.</p>
-      <button class="btn" onclick="selectNetwork('YELLO')">
-        View Bundles
-      </button>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      King<span>DATA</span> 🇬🇭
     </div>
+  </header>
 
-    <div class="network telecel">
-      <h3>🔴 Telecel</h3>
-      <p>Get Telecel data bundles.</p>
-      <button class="btn" onclick="selectNetwork('TELECEL')">
-        View Bundles
-      </button>
-    </div>
 
-    <div class="network airteltigo">
-      <h3>🔵 AirtelTigo</h3>
-      <p>Affordable AirtelTigo bundles.</p>
-      <button class="btn" onclick="selectNetwork('AIRTELTIGO')">
-        View Bundles
-      </button>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
 
-  </div>
-
-</section>
-
-<section class="section">
-
-  <div class="about">
-    <h2>KingDATA 🇬🇭</h2>
+    <h1>
+      Get Your <span>Data</span> Instantly
+    </h1>
 
     <p>
-      Fast data. Simple ordering. Reliable service.
+      Fast, reliable and affordable mobile data
+      bundles for customers across Ghana.
     </p>
-  </div>
 
-</section>
+    <a href="#networks" class="btn">
+      Buy Data
+    </a>
 
-<footer>
-  © 2026 KingDATA 🇬🇭. All rights reserved.
-</footer>
+  </section>
 
-<script>
-  function selectNetwork(network) {
-    alert("You selected " + network + ". Bundle selection will be connected to the DataMart API next.");
-  }
-</script>
+
+  <!-- NETWORKS -->
+  <section class="section" id="networks">
+
+    <h2>
+      Choose Your Network
+    </h2>
+
+    <div class="networks">
+
+      <!-- MTN -->
+      <div class="network mtn">
+
+        <h3>🟡 MTN</h3>
+
+        <p>
+          Affordable MTN data bundles.
+        </p>
+
+        <button
+          class="btn"
+          onclick="selectNetwork('YELLO')"
+        >
+          View Bundles
+        </button>
+
+      </div>
+
+
+      <!-- TELECEL -->
+      <div class="network telecel">
+
+        <h3>🔴 Telecel</h3>
+
+        <p>
+          Get Telecel data bundles.
+        </p>
+
+        <button
+          class="btn"
+          onclick="selectNetwork('TELECEL')"
+        >
+          View Bundles
+        </button>
+
+      </div>
+
+
+      <!-- AIRTELTIGO -->
+      <div class="network airteltigo">
+
+        <h3>🔵 AirtelTigo</h3>
+
+        <p>
+          Affordable AirtelTigo bundles.
+        </p>
+
+        <button
+          class="btn"
+          onclick="selectNetwork('AIRTELTIGO')"
+        >
+          View Bundles
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER FORM -->
+  <section class="section" id="order">
+
+    <h2>
+      Buy Data
+    </h2>
+
+    <div class="order-box">
+
+      <form onsubmit="submitOrder(event)">
+
+        <label>
+          Network
+        </label>
+
+        <input
+          type="text"
+          id="selectedNetworkDisplay"
+          readonly
+        >
+
+        <input
+          type="hidden"
+          id="selectedNetwork"
+        >
+
+
+        <label>
+          Phone Number
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="0250000000"
+          maxlength="10"
+          required
+        >
+
+
+        <label>
+          Data Bundle
+        </label>
+
+        <select
+          id="capacity"
+          required
+        >
+
+          <option value="">
+            Select bundle
+          </option>
+
+          <option value="1">
+            1GB
+          </option>
+
+          <option value="2">
+            2GB
+          </option>
+
+          <option value="3">
+            3GB
+          </option>
+
+          <option value="5">
+            5GB
+          </option>
+
+          <option value="10">
+            10GB
+          </option>
+
+        </select>
+
+
+        <button
+          class="btn"
+          type="submit"
+        >
+          Place Order
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="section">
+
+    <div class="about">
+
+      <h2>
+        KingDATA 🇬🇭
+      </h2>
+
+      <p>
+        Fast data. Simple ordering.
+        Reliable service.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    © 2026 KingDATA 🇬🇭.
+    All rights reserved.
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function selectNetwork(network) {
+
+      document.getElementById(
+        "order"
+      ).style.display = "block";
+
+      document.getElementById(
+        "selectedNetwork"
+      ).value = network;
+
+      document.getElementById(
+        "selectedNetworkDisplay"
+      ).value = network;
+
+      document.getElementById(
+        "order"
+      ).scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function submitOrder(event) {
+
+      event.preventDefault();
+
+      const network =
+        document.getElementById(
+          "selectedNetwork"
+        ).value;
+
+      const phone =
+        document.getElementById(
+          "phone"
+        ).value;
+
+      const capacity =
+        document.getElementById(
+          "capacity"
+        ).value;
+
+
+      alert(
+        "Order received!\n\n" +
+        "Network: " +
+        network +
+        "\nPhone: " +
+        phone +
+        "\nBundle: " +
+        capacity +
+        "GB"
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
